@@ -1,0 +1,31 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: {{ template "swift.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    app: {{ template "swift.name" . }}
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    release: {{ .Release.Name }}
+    component: swift
+    heritage: {{ .Release.Service }}
+  {{- if .Values.swift.ingress }}
+  {{- range $key, $value := .Values.swift.ingress.labels }}
+    {{ $key }}: {{ $value | quote }}
+  {{- end }}
+  {{- end }}
+  annotations:
+  {{- if .Values.swift.ingress }}
+  {{- range $key, $value := .Values.swift.ingress.annotations }}
+    {{ $key }}: {{ $value | quote }}
+  {{- end }}
+  {{- end }}
+spec:
+  rules:
+  - host: {{ .Values.swift.domain }}
+    http:
+      paths:
+#      - path: /{{ .Values.swift.path }}
+      - backend:
+          serviceName: {{ template "swift.fullname" . }}
+          servicePort: pt
