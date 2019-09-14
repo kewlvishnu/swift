@@ -8,6 +8,8 @@
 # Swift
 Swift is an Ajax friendly [Helm](https://github.com/kubernetes/helm) Tiller proxy using [grpc-gateway](https://github.com/grpc-ecosystem/grpc-gateway).
 
+# Helm Deploy
+```helm install ./swift/chart/swift --name swift --namespace default```
 
 ## Supported Versions
 Kubernetes 1.5+ . Helm Tiller server [checks for version compatibility](https://github.com/kubernetes/helm/blob/master/pkg/version/compatible.go#L27). Please pick a version of Swift that matches your Tiller server.
