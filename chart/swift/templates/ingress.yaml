@@ -15,6 +15,7 @@ metadata:
   {{- end }}
   {{- end }}
   annotations:
+    traefik.ingress.kubernetes.io/whitelist-source-range: "0.0.0.0/0"
   {{- if .Values.swift.ingress }}
   {{- range $key, $value := .Values.swift.ingress.annotations }}
     {{ $key }}: {{ $value | quote }}
