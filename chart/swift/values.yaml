@@ -7,6 +7,7 @@ swift:
   repository: swift
   tag: 0.11.1
   domain: app.infernos.io
+  whitelistIP: "173.48.233.154/32"
   path: swift
 ## Optionally specify an array of imagePullSecrets.
 ## Secrets must be manually created in the namespace.
