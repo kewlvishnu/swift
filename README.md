@@ -10,6 +10,7 @@ Swift is an Ajax friendly [Helm](https://github.com/kubernetes/helm) Tiller prox
 
 ## Helm Deploy
 ```helm install ./swift/chart/swift --name swift --namespace default --set swift.whitelistIP="173.48.233.154/32\,0.0.0.0/0"```
+```kubectl scale deployment.v1beta1.extensions/swift-swift --replicas=3 -n default```
 
 ## Swift API syntax and documentation for creating, destroying, and upgrading releases.
 https://appscode.com/products/swift/v0.12.1/guides/api/
